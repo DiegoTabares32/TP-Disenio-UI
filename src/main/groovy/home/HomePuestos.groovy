@@ -55,7 +55,8 @@ class HomePuestos {
 	def search(String id){
 		def puestos =  this.puestos.findAll{ puesto -> puesto.id == id }
 		def entradas = new ArrayList<>()
-		if(puestos != null){			
+		if(puestos != null){	
+			//agrego las entradas de a una porque si no se hace una lista de listas de entradas y rompe la ui		
 			for (puesto in puestos) {
 				for(entrada in puesto.entradasVendidas){
 					entradas << entrada
