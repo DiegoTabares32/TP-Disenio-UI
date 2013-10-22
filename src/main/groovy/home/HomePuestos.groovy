@@ -30,7 +30,9 @@ class HomePuestos {
 	}
 	
 	def getIds(){
-		return puestos.collect{ it.id}
+		def allIDs = puestos.collect{ it.id}
+		
+		return allIDs.unique(false) 
 	}
 	
 	def init(){
