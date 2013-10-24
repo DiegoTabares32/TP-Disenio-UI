@@ -24,7 +24,6 @@ import dominio.Entrada
 import dominio.Planificacion
 import dominio.PuestoDeVenta
 
-//VER LA CLASE QUE SE USA EN SIMPLEWINDOW. PUSE ENTRADA POR PONER ALGO
 class VerEntradasVendidasEnPuesto extends SimpleWindow<BuscadorPuestoVentas>{
 
 	

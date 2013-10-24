@@ -15,5 +15,9 @@ class PuestoDeVenta {
 	def agregarEntradaVendida(def entrada){
 		this.entradasVendidas << entrada
 	}
+	
+	def agregarEntradas(def entradas){
+		this.entradasVendidas.addAll(entradas)
+	}
 }
 

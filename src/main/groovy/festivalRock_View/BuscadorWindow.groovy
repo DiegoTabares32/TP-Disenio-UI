@@ -59,7 +59,7 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 	}
 	
 	def normal(){
-				
+		new BuscarButaca(this).open()	
 	}
 	
 	def reservadas(){
