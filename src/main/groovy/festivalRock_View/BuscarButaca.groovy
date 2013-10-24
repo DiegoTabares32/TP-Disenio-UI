@@ -124,11 +124,7 @@ class BuscarButaca extends SimpleWindow<BuscadorButacas>{
 	}
 	
 	def comprarEntrada(){
-		this.openDialog(new ComprarEntrada(this, modelObject.butacaSeleccionada))
+		new ComprarEntrada(this, modelObject.butacaSeleccionada).open()
 	}
-	
-	protected void openDialog(Dialog<?> dialog) {
-		dialog.onAccept({ modelObject.search() } as Action)
-		dialog.open()
-	}
+
 }

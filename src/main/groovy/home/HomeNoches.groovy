@@ -23,10 +23,12 @@ class HomeNoches {
 	
 	def init(){
 		noches << new Noche("23/05/2013", homeButacas.get(1), homeBandas.get(1))
+		noches << new Noche("23/05/2013", homeButacas.get(2), homeBandas.get(1))
+		noches << new Noche("4/10/2013", homeButacas.get(3), homeBandas.get(1))
 	}
 	
 	def getFechas(){
-		return this.noches.collect{ it.fecha }		
+		return this.noches.collect{ it.fecha }.unique(false)		
 	}
 		
 	def search(def fecha){//butacas de esa fecha

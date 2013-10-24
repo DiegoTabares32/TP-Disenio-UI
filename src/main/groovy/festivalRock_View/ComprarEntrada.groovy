@@ -3,14 +3,17 @@ package festivalRock_View
 import dominio.Butaca
 
 import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.CheckBox
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Dialog;
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.lacar.ui.model.Action
 
 
 
-class ComprarEntrada extends Dialog<Butaca>{
+class ComprarEntrada extends SimpleWindow<Butaca>{
 	
 	public ComprarEntrada(owner, model) {
 		super(owner, model)
@@ -27,7 +30,15 @@ class ComprarEntrada extends Dialog<Butaca>{
 			new Label(it).bindValueToProperty("ubicacion")
 			
 			}
-			
+			new Label(form).text = "Recibe resumen cuenta en domicilio"
+			new CheckBox(form)
 	}
+
+	@Override
+	protected void addActions(Panel actionsPanel) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
