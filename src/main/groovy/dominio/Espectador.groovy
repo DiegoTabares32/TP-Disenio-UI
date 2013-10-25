@@ -1,7 +1,9 @@
 package dominio
 
 import groovy.transform.TupleConstructor;
+import org.uqbar.commons.utils.Observable;
 
+@Observable
 @TupleConstructor
 class Espectador {
 	

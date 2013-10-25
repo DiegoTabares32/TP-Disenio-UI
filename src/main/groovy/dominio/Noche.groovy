@@ -7,7 +7,10 @@ import excepciones.ContraseniaNoEncontradaException;
 import groovy.transform.TupleConstructor;
 
 class Noche {
-
+	
+	def static ID = 1
+	
+	def id
 	def fecha
 	def butacas = [] as Set
 	def bandas = [] as Set
@@ -16,10 +19,12 @@ class Noche {
 	/*
 	 Metodo Constructor
 	 */
-	def Noche(fecha,butacas, bandas){
+	def Noche(fecha, butacas, bandas){
 		this.fecha = fecha
 		this.butacas.addAll(butacas)
 		this.bandas.addAll(bandas)
+		this.id = ID
+		ID++
 	}
 
 	def getPrimerButacaDisponible(){

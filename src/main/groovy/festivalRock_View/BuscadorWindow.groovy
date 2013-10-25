@@ -48,6 +48,10 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 		new Button(actionsPanel)
 				.setCaption("Entradas Vendidas en Puesto")
 				.onClick({ this.entradasVendidasEnUnPuesto()} as Action)
+				
+		new Button(actionsPanel)
+				.setCaption("Filtrar entradas por cliente")
+				.onClick({this.filtrarEntradas()} as Action)
 	}
 
 	def vip(){
@@ -55,7 +59,7 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 	}
 	
 	def normal(){
-		new BuscarButaca(this).open()	
+		new BuscarButacaWindow(this).open()	
 	}
 	
 	def cancelar(){
@@ -64,6 +68,10 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 	
 	def entradasVendidasEnUnPuesto(){
 		new VerEntradasVendidasEnPuesto(this).open()
+	}
+	
+	def filtrarEntradas(){
+		new BuscarEntradasPorClienteWindow(this).open()
 	}
 	
 	static void main(String[] args) {

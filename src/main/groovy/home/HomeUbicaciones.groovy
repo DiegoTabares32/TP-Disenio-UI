@@ -27,7 +27,7 @@ class HomeUbicaciones {
 		ubicaciones << new Ubicacion("verde", 5) //id 5
 		ubicaciones << new Ubicacion("rojo", 7) //id 6
 		ubicaciones << new Ubicacion("verde", 11) //id 7
-		ubicaciones << new Ubicacion("rojo", 4) //id8
+		ubicaciones << new Ubicacion("rojo", 4) //id 8
 	}
 	
 	def get(def id){

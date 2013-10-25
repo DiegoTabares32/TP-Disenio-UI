@@ -1,5 +1,7 @@
 package dominio
+import org.uqbar.commons.utils.Observable;
 
+@Observable
 class Comprador {
 	
 	def nombre

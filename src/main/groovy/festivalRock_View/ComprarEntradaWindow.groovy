@@ -13,9 +13,9 @@ import org.uqbar.lacar.ui.model.Action
 
 
 
-class ComprarEntrada extends SimpleWindow<Butaca>{
+class ComprarEntradaWindow extends SimpleWindow<Butaca>{
 	
-	public ComprarEntrada(owner, model) {
+	public ComprarEntradaWindow(owner, model) {
 		super(owner, model)
 	}
 
@@ -23,7 +23,6 @@ class ComprarEntrada extends SimpleWindow<Butaca>{
 	protected void createFormPanel(Panel mainPanel) {
 		Panel form = new Panel(mainPanel)
 		title = "Confirmacion de su compra"
-		taskDescription = "No olvide seleccionar si desea recibir el resumen de su compra a domicilio"
 		form.with {
 			layout = new ColumnLayout(2)
 			new Label(it).text = "Número de Butaca"

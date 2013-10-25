@@ -21,9 +21,13 @@ class BuscadorButacas implements Serializable{
 		resultados = homeNoches.search(fecha, contrasenia)//con esta fecha busca la noche cuya fecha coincida y devuelve las butacas
 	}
 	
+	def remove(){
+		homeNoches.remove(fecha, butacaSeleccionada)
+	}
+	
 	def clear(){
 		this.fecha = null
-		this.fecha = null
+		this.contrasenia = null
 		this.search()
 	}
 }

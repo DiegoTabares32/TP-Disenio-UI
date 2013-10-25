@@ -21,9 +21,9 @@ import dominio.Butaca
 import dominio.Entrada;
 
 
-class BuscarButaca extends SimpleWindow<BuscadorButacas>{
+class BuscarButacaWindow extends SimpleWindow<BuscadorButacas>{
 
-	BuscarButaca(WindowOwner owner){
+	BuscarButacaWindow(WindowOwner owner){
 		super(owner, new BuscadorButacas())
 		modelObject.search()
 	}
@@ -131,7 +131,9 @@ class BuscarButaca extends SimpleWindow<BuscadorButacas>{
 	}
 	
 	def comprarEntrada(){
-		new ComprarEntrada(this, modelObject.butacaSeleccionada).open()
+		new ComprarEntradaWindow(this, modelObject.butacaSeleccionada).open()
+		modelObject.remove()
+		modelObject.clear()
 	}
 
 }
