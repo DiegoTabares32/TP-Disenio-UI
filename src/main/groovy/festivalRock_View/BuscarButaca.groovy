@@ -9,6 +9,7 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
@@ -30,7 +31,7 @@ class BuscarButaca extends SimpleWindow<BuscadorButacas>{
 	@Override
 	protected void createMainTemplate(Panel mainPanel) {
 		title = "Buscador de butacas"
-		taskDescription = "Elija la fecha del festival para seleccionar la butaca"
+		taskDescription = "Elija la fecha del festival para seleccionar la butaca." 
 
 		super.createMainTemplate(mainPanel)
 
@@ -45,6 +46,10 @@ class BuscarButaca extends SimpleWindow<BuscadorButacas>{
 		Button comprar = new Button(actionsPanel)
 		comprar.setCaption("Comprar")
 		comprar.onClick({ this.comprarEntrada() } as Action)
+		
+		new Button(actionsPanel) //
+		.setCaption("Cerrar")
+		.onClick({ this.close() } as Action)
 //
 //		Button remove = new Button(actionsPanel)
 //		remove.setCaption("Borrar")
@@ -104,10 +109,12 @@ class BuscarButaca extends SimpleWindow<BuscadorButacas>{
 		Panel searchFormPanel = new Panel(mainPanel)
 		searchFormPanel.setLayout(new ColumnLayout(2))
 		
-		new Label(searchFormPanel).setText("Fecha");
+		new Label(searchFormPanel).setText("Fechas disponibles");
 		Selector<BuscadorButacas> unSelector = new Selector<BuscadorButacas>(searchFormPanel).allowNull(false);
 		unSelector.bindValueToProperty("fecha");
 		unSelector.bindItemsToProperty("fechas")		
+		new Label(searchFormPanel).setText("Si usted tiene entradas reservadas ingrese la contraseña por favor.")
+		new TextBox(searchFormPanel).bindValueToProperty("contrasenia")
 	}
 	
 	@Override

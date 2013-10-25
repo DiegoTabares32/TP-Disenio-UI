@@ -22,6 +22,8 @@ class ComprarEntrada extends SimpleWindow<Butaca>{
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
 		Panel form = new Panel(mainPanel)
+		title = "Confirmacion de su compra"
+		taskDescription = "No olvide seleccionar si desea recibir el resumen de su compra a domicilio"
 		form.with {
 			layout = new ColumnLayout(2)
 			new Label(it).text = "Número de Butaca"
@@ -36,7 +38,9 @@ class ComprarEntrada extends SimpleWindow<Butaca>{
 
 	@Override
 	protected void addActions(Panel actionsPanel) {
-		// TODO Auto-generated method stub
+		new Button(actionsPanel) //
+				.setCaption("Cerrar")
+				.onClick({ this.close() } as Action)
 		
 	}
 

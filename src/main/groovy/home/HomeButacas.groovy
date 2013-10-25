@@ -27,6 +27,9 @@ class HomeButacas {
 		butacas << new Butaca(6, homeUbicaciones.get(3), null)// id 3
 		butacas << new Butaca(7, homeUbicaciones.get(4), null)// id 4
 		butacas << new Butaca(9, homeUbicaciones.get(5), null)// id 5
+		butacas << new Butaca(3, homeUbicaciones.get(6), "87897")// id 6
+		butacas << new Butaca(5, homeUbicaciones.get(7), "87897")// id 7
+		butacas << new Butaca(2, homeUbicaciones.get(8), "87897")// id 8
 		
 	}
 	
