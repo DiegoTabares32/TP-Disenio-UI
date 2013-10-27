@@ -58,17 +58,7 @@ class ComprarEntradaWindow extends SimpleWindow<BuscadorButacas>{
 
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
-		/*Panel form = new Panel(mainPanel)
-		title = "Butaca seleccionada"
-		form.with {
-			layout = new ColumnLayout(2)
-			new Label(it).text = "Número de Butaca"
-			new Label(it).bindValueToProperty("numeroButaca")
-			new Label(it).text = "Ubicacion"
-			new Label(it).bindValueToProperty("ubicacion")
-		}
-		new Label(form).text = "Recibe resumen cuenta en domicilio"
-		new CheckBox(form)*/
+		//
 	}
 
 	@Override

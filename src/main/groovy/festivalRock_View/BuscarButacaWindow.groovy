@@ -50,6 +50,11 @@ class BuscarButacaWindow extends SimpleWindow<BuscadorButacas>{
 		new Button(actionsPanel) //
 		.setCaption("Cerrar")
 		.onClick({ this.close() } as Action)
+		
+		new Button(actionsPanel)
+		.setCaption("Cancelar compra")
+		.onClick({modelObject.add()} as Action)
+		.onclick({this.close()} as Action)
 //
 //		Button remove = new Button(actionsPanel)
 //		remove.setCaption("Borrar")
