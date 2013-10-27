@@ -9,6 +9,9 @@ class BuscadorClientes implements Serializable{
 	def resultados = [] as Set
 	def nombre
 	def apellido
+	def fechaInicio
+	def fechaCompra
+	def fechaFin
 	
 	def search(){
 		// WORKAROUND para que refresque la grilla en las actualizaciones
@@ -17,9 +20,18 @@ class BuscadorClientes implements Serializable{
 		resultados = homeClientes.search(nombre, apellido)
 	}
 	
+	def filtrarEntradas(){
+				
+		resultados = []
+		
+		resultados = homeClientes.filtrarPorFecha(nombre, apellido, fechaInicio, fechaFin)
+	}
+	
 	def clear(){
 		this.nombre = null
 		this.apellido = null
+		this.fechaInicio = null
+		this.fechaFin = null
 		this.search()
 	}
 
