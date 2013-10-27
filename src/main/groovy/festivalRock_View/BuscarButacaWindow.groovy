@@ -131,8 +131,8 @@ class BuscarButacaWindow extends SimpleWindow<BuscadorButacas>{
 	}
 	
 	def comprarEntrada(){
-		new ComprarEntradaWindow(this, modelObject.butacaSeleccionada).open()
 		modelObject.remove()
+		new ComprarEntradaWindow(this, modelObject).open()
 		modelObject.clear()
 	}
 

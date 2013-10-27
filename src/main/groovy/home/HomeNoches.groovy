@@ -8,6 +8,7 @@ class HomeNoches {
 	static def homeBandas = HomeBandas.INSTANCE
 	static def INSTANCE = getInstance()
 	def noches = [] as Set
+	def butacasAComprar = [] as Set
 
 	private HomeNoches(){
 		super()
@@ -23,6 +24,7 @@ class HomeNoches {
 
 	def init(){
 		noches << new Noche("23/05/2013", homeButacas.get(1), homeBandas.get(1)) //id 1
+		noches << new Noche("23/05/2013", homeButacas.get(3), homeBandas.get(1)) //id 1
 		noches << new Noche("23/05/2013", homeButacas.get(2), homeBandas.get(1)) //id 2
 		noches << new Noche("4/10/2013", homeButacas.get(3), homeBandas.get(1)) //id 3
 		noches << new Noche("23/05/2013", homeButacas.get(6), homeBandas.get(1)) //id 4
@@ -46,7 +48,18 @@ class HomeNoches {
 	}
 
 	def remove(fecha, butacaARemover){
-		def noche = this.noches.find{it.fecha == fecha}
-		noche.butacas.remove(butacaARemover)
+		def nochesR = []
+		nochesR = noches.findAll{it.fecha == fecha}
+		def nocheRR = nochesR.find{it.butacas.contains(butacaARemover)}
+		noches.remove(nocheRR)
+		butacasAComprar << nocheRR
+	}
+	
+	def add(){
+		noches.addAll(butacasAComprar)
+	}
+	
+	def finalizarCompra(){
+		butacasAComprar = []
 	}
 }

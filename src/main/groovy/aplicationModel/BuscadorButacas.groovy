@@ -13,18 +13,29 @@ class BuscadorButacas implements Serializable{
 	def fechas = homeNoches.getFechas()
 	def butacaSeleccionada
 	def contrasenia = null
-	
+	def butacasAComprar = [] as Set
+
 	def search(){
 		// WORKAROUND para que refresque la grilla en las actualizaciones
 		resultados = []
 		// FIN WORKAROUND
 		resultados = homeNoches.search(fecha, contrasenia)//con esta fecha busca la noche cuya fecha coincida y devuelve las butacas
 	}
-	
+
 	def remove(){
 		homeNoches.remove(fecha, butacaSeleccionada)
+		butacasAComprar << butacaSeleccionada
 	}
-	
+
+	def add(){
+		homeNoches.add()
+	}
+
+	def finalizarCompra(){
+		homeNoches.finalizarCompra()
+		butacasAComprar = []
+	}
+
 	def clear(){
 		this.fecha = null
 		this.contrasenia = null

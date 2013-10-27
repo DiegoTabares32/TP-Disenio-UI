@@ -40,10 +40,6 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 		new Button(actionsPanel) //
 				.setCaption("Comprar butacas")
 				.onClick({ this.normal() } as Action)
-		
-		new Button(actionsPanel)
-				.setCaption("Cancelar Entrada")
-				.onClick({ this.cancelar()} as Action)
 				
 		new Button(actionsPanel)
 				.setCaption("Entradas Vendidas en Puesto")
@@ -61,11 +57,7 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 	def normal(){
 		new BuscarButacaWindow(this).open()	
 	}
-	
-	def cancelar(){
 		
-	}
-	
 	def entradasVendidasEnUnPuesto(){
 		new VerEntradasVendidasEnPuesto(this).open()
 	}
