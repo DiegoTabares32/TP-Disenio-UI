@@ -81,4 +81,9 @@ import org.uqbar.commons.utils.Observable
 		return noche.fecha
 	}
 	
+	
+	def String toString(){
+		return this.butacas	
+	}
+	
 }

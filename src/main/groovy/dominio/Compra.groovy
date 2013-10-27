@@ -29,8 +29,8 @@ class Compra {
 
 	//PARA MOSTRAR LOS DATOS
 	@Override
-	public String toString() {
-		return this.fechaCompra+'-'+this.entradasCompradas
+	public String toString() {			
+		return this.fechaCompra+'-'+ this.entradasCompradas
 	}
 
 }
