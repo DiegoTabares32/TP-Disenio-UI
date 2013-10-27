@@ -27,45 +27,45 @@ class BuscarButacaWindow extends SimpleWindow<BuscadorButacas>{
 		super(owner, new BuscadorButacas())
 		modelObject.search()
 	}
-	
+
 	@Override
 	protected void createMainTemplate(Panel mainPanel) {
 		title = "Buscador de butacas"
-		taskDescription = "Elija la fecha del festival para seleccionar la butaca." 
+		taskDescription = "Elija la fecha del festival para seleccionar la butaca."
 
 		super.createMainTemplate(mainPanel)
 
 		this.createResultsGrid(mainPanel)
 		this.createGridActions(mainPanel)
 	}
-	
+
 	protected void createGridActions(Panel mainPanel) {
 		Panel actionsPanel = new Panel(mainPanel)
 		actionsPanel.setLayout(new HorizontalLayout())
 
 		Button comprar = new Button(actionsPanel)
 		comprar.setCaption("Comprar")
-		comprar.onClick({ this.comprarEntrada() } as Action)
-		
+				.onClick({ this.comprarEntrada() } as Action)
+
 		new Button(actionsPanel) //
-		.setCaption("Cerrar")
-		.onClick({ this.close() } as Action)
-		
+				.setCaption("Cerrar")
+				.onClick({ this.close() } as Action)
+
 		new Button(actionsPanel)
-		.setCaption("Cancelar compra")
-		.onClick({modelObject.add()} as Action)
-		.onclick({this.close()} as Action)
-//
-//		Button remove = new Button(actionsPanel)
-//		remove.setCaption("Borrar")
-//		remove.onClick( { modelObject.eliminarCelularSeleccionado() } as Action)
+				.setCaption("Cancelar compra")
+				.onClick({modelObject.add()} as Action)
+				.onClick({this.close()} as Action)
+		//
+		//		Button remove = new Button(actionsPanel)
+		//		remove.setCaption("Borrar")
+		//		remove.onClick( { modelObject.eliminarCelularSeleccionado() } as Action)
 
 		// Deshabilitar los botones si no hay ningún elemento seleccionado en la grilla.
 		NotNullObservable elementSelected = new NotNullObservable("butacaSeleccionada")
-//		remove.bindEnabled(elementSelected)
+		//		remove.bindEnabled(elementSelected)
 		comprar.bindEnabled(elementSelected)
 	}
-	
+
 	// *************************************************************************
 	// ** RESULTADOS DE LA BUSQUEDA
 	// *************************************************************************
@@ -85,7 +85,7 @@ class BuscarButacaWindow extends SimpleWindow<BuscadorButacas>{
 		}
 		this.describeResultsGrid(table)
 	}
-	
+
 	/**
 	 * Define las columnas de la grilla Cada columna se puede bindear 1) contra una propiedad del model, como
 	 * en el caso del nÃºmero o el nombre 2) contra un transformer que recibe el model y devuelve un tipo
@@ -113,15 +113,15 @@ class BuscarButacaWindow extends SimpleWindow<BuscadorButacas>{
 	protected void createFormPanel(Panel mainPanel) {
 		Panel searchFormPanel = new Panel(mainPanel)
 		searchFormPanel.setLayout(new ColumnLayout(2))
-		
+
 		new Label(searchFormPanel).setText("Fechas disponibles");
 		Selector<BuscadorButacas> unSelector = new Selector<BuscadorButacas>(searchFormPanel).allowNull(false);
 		unSelector.bindValueToProperty("fecha");
-		unSelector.bindItemsToProperty("fechas")		
+		unSelector.bindItemsToProperty("fechas")
 		new Label(searchFormPanel).setText("Si usted tiene entradas reservadas ingrese la contraseña por favor.")
 		new TextBox(searchFormPanel).bindValueToProperty("contrasenia")
 	}
-	
+
 	@Override
 	protected void addActions(Panel actionsPanel) {
 		new Button(actionsPanel)
@@ -134,7 +134,7 @@ class BuscarButacaWindow extends SimpleWindow<BuscadorButacas>{
 				.setCaption("Limpiar")
 				.onClick({ modelObject.clear() } as Action)
 	}
-	
+
 	def comprarEntrada(){
 		modelObject.remove()
 		new ComprarEntradaWindow(this, modelObject).open()
