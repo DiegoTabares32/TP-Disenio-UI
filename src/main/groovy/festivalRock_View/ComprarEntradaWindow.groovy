@@ -72,6 +72,9 @@ class ComprarEntradaWindow extends SimpleWindow<BuscadorButacas>{
 		new Button(actionsPanel) //
 				.setCaption("Finalizar Compra")
 				.onClick({this.compraConfirmadaWindow()} as Action)
+		new Button(actionsPanel)
+				.setCaption("Ingresar Datos")
+				.onClick({this.registrarDatosWindow()} as Action)
 
 
 	}
@@ -86,6 +89,11 @@ class ComprarEntradaWindow extends SimpleWindow<BuscadorButacas>{
 		new CompraConfirmadaWindow(this, modelObject).open()
 		modelObject.finalizarCompra()
 		this.close()
+	}
+	
+	def registrarDatosWindow(){
+		modelObject.butacasAComprar
+		new RegistrarDatosWindow(this, modelObject).open()
 	}
 	
 }

@@ -10,12 +10,32 @@ import excepciones.ButacaNoEncontradaException
 	def nochesConcierto = [] as Set
 	def descuentosAplicables = [] as Set
 	
+	static def instance
+	
+		def static synchronized getInstance() {
+			if (!instance) {
+				instance = new Planificacion()				
+			}
+			instance
+		}
+	
 	/*
 	 * Metodos noche
 	 */
 	
 	def agregarNoche(noche){
 		nochesConcierto << noche
+	}
+	
+	def getButacasDisponibles(def fecha){
+		def nochesR = this.nochesConcierto.findAll{ it -> it.fecha == fecha}
+		def butacas = [] as Set
+		if(nochesR != null){
+			for(noche in nochesR){
+				butacas.addAll(noche.butacas)
+			}
+			return butacas
+		}
 	}
 	
 	def butacasVip(){
