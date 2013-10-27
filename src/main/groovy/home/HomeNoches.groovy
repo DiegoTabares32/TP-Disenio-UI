@@ -62,4 +62,8 @@ class HomeNoches {
 	def finalizarCompra(){
 		butacasAComprar = []
 	}
+	
+	def get(def id){
+		return this.noches.find{noche -> noche.id == id}
+	}
 }

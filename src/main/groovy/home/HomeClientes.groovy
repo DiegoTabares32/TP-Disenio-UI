@@ -60,15 +60,19 @@ class HomeClientes {
 		compra2.entradasCompradas << entrada3
 		compra3.fechaCompra = Date.parse( "yyyy-MM-dd", "2013-06-17" )
 		compra3.entradasCompradas << entrada4
+		
+		cliente1.compras << compra1
+		cliente1.compras << compra2
+		cliente2.compras << compra3
 
-
-		clientes << [cliente1, cliente2]
+		clientes << cliente1
+		clientes << cliente2
 
 	}
 
 	def search(nombre, apellido){
 		
-		return	this.clientes.find{ it -> it.nombre == nombre && it.apellido == apellido}
+		this.clientes.findAll{ it -> it.nombre == nombre && it.apellido == apellido}
 		
 	}
 	
