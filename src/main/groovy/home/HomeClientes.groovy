@@ -54,7 +54,7 @@ class HomeClientes {
 		def compra2 = new Compra()
 		def compra3 = new Compra()
 
-		compra1.fechaCompra = Date.parse( "yyyy-MM-dd", "2013-05-09" )
+		compra1.fechaCompra = Date.parse( "yyyy-MM-dd", "2012-05-09" )
 		compra1.entradasCompradas <<  [entrada1, entrada2]
 		compra2.fechaCompra = Date.parse( "yyyy-MM-dd", "2013-08-08" )
 		compra2.entradasCompradas << entrada3
@@ -74,14 +74,18 @@ class HomeClientes {
 		def cliente
 		cliente = this.clientes.find{ it -> it.nombre == nombre && it.apellido == apellido}
 		if (cliente != null)
-			return cliente.compras
+			cliente.compras
 	}
 
-	def flitarPorFecha(cliente, fechaInicio, fechaFin){
-		def fechaInicioParse = Date.parse( "yyyy-MM-dd", fechaInicio )
-		def fechaFinParse = Date.parse( "yyyy-MM-dd", fechaFin )
-		def comprasFiltradas = []
-		comprasFiltradas = cliente.compras.findAll{it -> it > fechaInicioParse && it < fechaFinParse}
-		return comprasFiltradas.sort()
+	def filtrarPorFecha(nombre, apellido, fechaInicio, fechaFin){
+		if (fechaInicio != null & fechaFin != null){
+			def comprasSinFiltrar = []
+			comprasSinFiltrar = this.search(nombre, apellido)
+			def comprasFiltradas = []
+			def fechaInicioParse = Date.parse( "dd/MM/yyyy", fechaInicio )
+			def fechaFinParse = Date.parse( "dd/MM/yyyy", fechaFin )
+			comprasFiltradas = comprasSinFiltrar.findAll{it -> it.fechaCompra > fechaInicioParse && it.fechaCompra < fechaFinParse}
+			//return comprasFiltradas.sort()
+		}
 	}
 }

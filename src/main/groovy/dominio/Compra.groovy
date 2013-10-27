@@ -27,10 +27,10 @@ class Compra {
 		entradasCompradas = []
 	}
 
-	//PARA MOSTRAR LOS DATOS
+	/*PARA MOSTRAR LOS DATOS
 	@Override
 	public String toString() {			
 		return this.fechaCompra+'-'+ this.entradasCompradas
-	}
+	}*/
 
 }
