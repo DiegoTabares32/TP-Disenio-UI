@@ -71,8 +71,9 @@ class HomeClientes {
 	}
 
 	def search(nombre, apellido){
-		
-		this.clientes.findAll{ it -> it.nombre == nombre && it.apellido == apellido}
+		def cliente
+		cliente = this.clientes.find{ it -> it.nombre == nombre && it.apellido == apellido}
+		return cliente.compras
 		
 	}
 	

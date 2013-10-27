@@ -2,6 +2,7 @@ package aplicationModel
 
 import home.HomeClientes
 
+@org.uqbar.commons.utils.Observable
 class BuscadorClientes implements Serializable{
 	
 	static def homeClientes = HomeClientes.INSTANCE
