@@ -15,6 +15,10 @@ class BuscadorButacas implements Serializable{
 	def contrasenia = null
 	def butacasAComprar = [] as Set
 
+	def BuscadorButacas(){
+		super()
+	}
+	
 	def search(){
 		// WORKAROUND para que refresque la grilla en las actualizaciones
 		resultados = []
