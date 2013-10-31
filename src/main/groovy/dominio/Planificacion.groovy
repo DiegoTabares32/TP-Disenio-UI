@@ -14,6 +14,7 @@ import excepciones.ButacaNoEncontradaException
 	
 		def static synchronized getInstance() {
 			if (!instance) {
+				
 				instance = new Planificacion()				
 			}
 			instance

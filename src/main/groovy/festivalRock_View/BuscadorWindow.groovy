@@ -48,6 +48,11 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 		new Button(actionsPanel)
 				.setCaption("Filtrar entradas por cliente")
 				.onClick({this.filtrarEntradas()} as Action)
+				
+		new Button(actionsPanel)
+				.setCaption("Ver Bandas Vistas Por Cliente")
+				.onClick({this.bandasVistas()} as Action)
+		       	
 	}
 
 	def vip(){
@@ -64,6 +69,10 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 	
 	def filtrarEntradas(){
 		new BuscarEntradasPorClienteWindow(this).open()
+	}
+	
+	def bandasVistas(){
+		new VerBandasVistasPorClienteWindow(this).open()
 	}
 	
 	static void main(String[] args) {

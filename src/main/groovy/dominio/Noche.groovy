@@ -1,11 +1,14 @@
 package dominio
 
+import org.uqbar.commons.utils.Observable;
+
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import excepciones.ButacaNoEncontradaException;
 import excepciones.ContraseniaNoEncontradaException;
 import groovy.transform.TupleConstructor;
 
+@Observable
 class Noche {
 	
 	def static ID = 1
