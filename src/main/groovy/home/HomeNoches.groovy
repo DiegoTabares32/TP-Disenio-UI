@@ -32,7 +32,7 @@ class HomeNoches {
 	}
 
 	def getFechas(){
-		return this.noches.collect{ it.fecha }.unique(false)
+		return this.noches.collect{ it.fecha }.unique(false)    
 	}
 
 	def search(fecha, contrasenia){
@@ -66,4 +66,30 @@ class HomeNoches {
 	def get(def id){
 		return this.noches.find{noche -> noche.id == id}
 	}
+	
+	//
+	def getNombresBandas(){
+		def allNombresBandas = []
+				for (noche in noches){
+					noche.bandas.each{
+								if (!allNombresBandas.contains(it.nombreBanda)) {
+									allNombresBandas << it.nombreBanda }
+								}
+				}
+		return allNombresBandas
+	}
+	
+	def searchBandasPorNombre(String nombre){
+			def bandaEncontrada = []
+			def resultados = new ArrayList<>()
+			
+			for (noche in noches) {
+				bandaEncontrada = noche.bandas.find { banda -> banda.nombreBanda == nombre}
+				if(bandaEncontrada != null){
+						resultados << noche
+				}
+			}
+			return resultados
+	}
+
 }

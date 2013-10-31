@@ -52,6 +52,10 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 		new Button(actionsPanel)
 				.setCaption("Ver Bandas Vistas Por Cliente")
 				.onClick({this.bandasVistas()} as Action)
+				
+		new Button(actionsPanel)
+				.setCaption("Bandas Participes")
+				.onClick({ this.bandasParticipantes() } as Action)
 		       	
 	}
 
@@ -73,6 +77,10 @@ class BuscadorWindow extends MainWindow<Planificacion>{
 	
 	def bandasVistas(){
 		new VerBandasVistasPorClienteWindow(this).open()
+	}
+	
+	def bandasParticipantes(){
+		new BandasParticipantesWindow(this).open()
 	}
 	
 	static void main(String[] args) {
