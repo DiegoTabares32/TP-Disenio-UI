@@ -67,16 +67,10 @@ class HomeBandasPorCliente {
 		fechas << noche1.fecha
 		fechas << noche2.fecha
 		
-		/*def noches1 = [] as Set
-		noches1 << noche1
-		def noches2 = [] as Set 
-		noches2 << noche2
-		noches << noche2 */
+
 				def cliente1 = new Comprador("Luis", "Gomez")
 				def cliente2 = new Comprador("Pedro", "Sanchez")
-				//def cliente3 = new Comprador("Juana", "Gonzalez")
-				//def cliente4 = new Comprador("Jane", "Doe")
-		
+				
 				
 				
 				
@@ -93,19 +87,7 @@ class HomeBandasPorCliente {
 				entradas << entrada2
 				entradas << entrada3
 				
-				/*def compra1 = new Compra()
-				def compra2 = new Compra()
-				def compra3 = new Compra()
-		
-				compra1.fechaCompra = Date.parse( "yyyy-MM-dd", "2012-05-09" )
-				compra1.entradasCompradas <<  [entrada1, entrada2]
-				compra2.fechaCompra = Date.parse( "yyyy-MM-dd", "2013-08-08" )
-				compra2.entradasCompradas << entrada3*/
 			
-		
-				/*cliente1.compras << compra1
-				cliente1.compras << compra2
-				cliente2.compras << compra3*/
 		
 				espectadores << espectador1
 				espectadores << espectador2
