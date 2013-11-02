@@ -29,6 +29,9 @@ class HomeNoches {
 		noches << new Noche("4/10/2013", homeButacas.get(3), homeBandas.get(1)) //id 3
 		noches << new Noche("23/05/2013", homeButacas.get(6), homeBandas.get(1)) //id 4
 		noches << new Noche("4/10/2013", homeButacas.get(7), homeBandas.get(1)) //id 5
+		noches << new Noche("13/09/2013", homeButacas.get(3), homeBandas.get(1)) //id 6 vendida
+		noches << new Noche("13/09/2013", homeButacas.get(2), homeBandas.get(1)) // id 7 vendida
+		noches << new Noche( '13/09/2013', homeButacas.get(1), homeBandas.get(1))//id 8 vendida
 	}
 
 	def getFechas(){

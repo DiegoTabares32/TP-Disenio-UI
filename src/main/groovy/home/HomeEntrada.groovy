@@ -12,27 +12,28 @@ import dominio.Ubicacion
 
 class HomeEntrada {
 	
+	static def homeUbicaciones = HomeUbicaciones.INSTANCE
+	static def homeButacas = HomeButacas.INSTANCE
+	static def homeNoches = HomeNoches.INSTANCE
+	static def homeEspectadores = HomeEspectadores.INSTANCE
+	static def homeBandas = HomeBandas.INSTANCE
+	static def homeClientes = HomeClientes.INSTANCE
 	def entradas = [] as Set
 	static def INSTANCE = new HomeEntrada()
 	
 	private HomeEntrada(){
-		super()	
-		this.init()	
+		super()		
 	}
 	
-	def init(){
-		def ubicacion = new Ubicacion("azul", 5)
-		def butacas = new Butaca(23, ubicacion, null)
-		def banda1 = new Banda("Radiohead", 4, 200)
-		this.entradas << new Entrada(
-						new Comprador('Testa','Ferro'), new Espectador ('Jonas', 'Castillo', 23, 'Masculino'),
-						ubicacion, butacas, banda1,	new Noche( '13/09/2013', butacas, banda1))
-		this.entradas << new Entrada(
-			new Comprador('Juan','Gomez'), new Espectador ('Julio', 'Cruz', 23, 'Masculino'),
-			ubicacion, butacas, banda1,	new Noche( '13/09/2013', butacas, banda1))
-		this.entradas << new Entrada(
-			new Comprador('Tesone','Pablo'), new Espectador ('Gabriela', 'Saballa', 23, 'Masculino'),
-			ubicacion, butacas, banda1,	new Noche( '13/09/2013', butacas, banda1))
+	static def HomeEntrada getInstance(){
+		if(INSTANCE == null){
+			INSTANCE = new HomeEntrada()
+		}
+		return INSTANCE
+	}
+	
+	def agregarEntrada(entrada){
+		entradas << entrada
 	}
 	
 	def buscar(def fecha){
@@ -40,5 +41,9 @@ class HomeEntrada {
 //			entrada -> entrada.getFecha().equals(fecha)
 //		}
 		return this.entradas
+	}
+	
+	def get(id){
+		return this.entradas.find{it.id == id }
 	}
 }

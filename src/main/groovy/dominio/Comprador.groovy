@@ -4,6 +4,10 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 class Comprador {
 	
+	
+	def static ID = 1
+	
+	def id
 	def nombre
 	def apellido
 	def compras = []
@@ -15,6 +19,8 @@ class Comprador {
 	def Comprador(nombre, apellido){
 		this.nombre = nombre
 		this.apellido = apellido
+		this.id = ID
+		ID++
 	}
 	
 	/*

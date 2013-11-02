@@ -21,6 +21,7 @@ class HomeBandas {
 	
 	def init(){
 		bandas << new Banda("metallica", 1, 30)// id 1
+		bandas << new Banda("Queen", 2, 50) //id 2
 	}
 	
 	def get(id){

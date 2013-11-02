@@ -8,7 +8,7 @@ class PuestoDeVenta {
 	def id
 	def entradasVendidas = [] as Set
 	
-	def PuestoDeVenta(def id){
+	def PuestoDeVenta(id){
 		this.id = id	
 	}
 	

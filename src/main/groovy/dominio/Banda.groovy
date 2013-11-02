@@ -17,7 +17,7 @@ class Banda {
 	def categoria
 	def precioCategoria
 	
-	def Banda(def nombre, def categoria, def precio){
+	def Banda( nombre, categoria, precio){
 		this.id = ID
 		this.nombreBanda = nombre
 		this.categoria = categoria

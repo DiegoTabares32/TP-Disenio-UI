@@ -11,6 +11,9 @@ class HomeClientes {
 	static def homeUbicaciones = HomeUbicaciones.INSTANCE
 	static def homeButacas = HomeButacas.INSTANCE
 	static def homeNoches = HomeNoches.INSTANCE
+	static def homeEspectadores = HomeEspectadores.INSTANCE
+	static def homeBandas = HomeBandas.INSTANCE
+	static def homeEntrada = HomeEntrada.INSTANCE
 	static def INSTANCE = getInstance()
 	def clientes = [] as Set
 
@@ -34,22 +37,21 @@ class HomeClientes {
 
 	def init(){
 
-		def banda1 = new Banda("Radiohead", 4, 200)
-
-		def cliente1 = new Comprador("Juan", "Perez")
-		def cliente2 = new Comprador("John", "Smith")
+		def cliente1 = new Comprador("Testa", "Ferro") //id 1
+		def cliente2 = new Comprador("Jonas", "Castillo") //id 2
 		//def cliente3 = new Comprador("Juana", "Gonzalez")
 		//def cliente4 = new Comprador("Jane", "Doe")
 
-		def espectador1 = new Espectador('Jonas', 'Castillo', 23, 'Masculino')
-		def espectador2 = new Espectador('Melina', 'Miranda', 23, 'Femenino')
-		def espectador3 = new Espectador("Juan", "Perez", 25, 'Masculino')
-
-		def entrada1 = new Entrada(cliente1, espectador1, homeUbicaciones.get(1), homeButacas.get(1), banda1, homeNoches.get(1))
-		def entrada2 = new Entrada(cliente1, espectador2, homeUbicaciones.get(2), homeButacas.get(2), banda1, homeNoches.get(2))
-		def entrada3 = new Entrada(cliente1, espectador3, homeUbicaciones.get(3), homeButacas.get(3), banda1, homeNoches.get(3))
-		def entrada4 = new Entrada(cliente1, espectador1, homeUbicaciones.get(6), homeButacas.get(6), banda1, homeNoches.get(4))
-
+		def entrada1 = new Entrada(cliente1, homeEspectadores.get(1), homeUbicaciones.get(1), homeButacas.get(1), homeBandas.get(1), homeNoches.get(1))
+		def entrada2 = new Entrada(cliente1, homeEspectadores.get(3), homeUbicaciones.get(2), homeButacas.get(2), homeBandas.get(2), homeNoches.get(2))
+		def entrada3 = new Entrada(cliente1, homeEspectadores.get(2), homeUbicaciones.get(3), homeButacas.get(3), homeBandas.get(1), homeNoches.get(3))
+		def entrada4 = new Entrada(cliente1, homeEspectadores.get(1), homeUbicaciones.get(6), homeButacas.get(6), homeBandas.get(1), homeNoches.get(4))
+		
+		homeEntrada.agregarEntrada(entrada1)
+		homeEntrada.agregarEntrada(entrada2)
+		homeEntrada.agregarEntrada(entrada3)
+		homeEntrada.agregarEntrada(entrada4)
+		
 		def compra1 = new Compra()
 		def compra2 = new Compra()
 		def compra3 = new Compra()
@@ -70,6 +72,10 @@ class HomeClientes {
 
 	}
 
+	def get(def id){
+		return this.clientes.find{noche -> noche.id == id}
+	}	
+	
 	def search(nombre, apellido){
 		def cliente
 		cliente = this.clientes.find{ it -> it.nombre == nombre && it.apellido == apellido}
